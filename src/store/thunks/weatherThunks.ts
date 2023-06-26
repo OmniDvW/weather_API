@@ -1,15 +1,56 @@
 import { createAsyncThunk } from '@reduxjs/toolkit';
-import { fetchWeatherData } from '../../services/weatherApi';
+import { fetchRealtimeWeatherData, fetchSearchData } from '../../services/weatherApi';
 
 
-export const fetchWeather = createAsyncThunk(
-  'weather/fetchWeather',
+export const fetchSearchResults = createAsyncThunk(
+  'weather/fetchSearchResults',
   async (city: string) => {
     try {
-      const response = await fetchWeatherData(city);
+      const response = await fetchSearchData(city);
+
+      const searchData: {
+        entities: {
+          cities: { [key: string]: { name: string, region: string, country: string, lat: string, lon: string, url: string } },
+        },
+        result: string[],
+      } = {
+        entities: {
+          cities: {},
+        },
+        result: [],
+      };
+
+      response.data.forEach((cityData: any) => {
+        const { name, region, country, lat, lon, url } = cityData;
+
+        searchData.entities.cities[url] = {
+          name,
+          region,
+          country,
+          lat,
+          lon,
+          url,
+        };
+
+        searchData.result.push(url);
+      });
+
+      return searchData.entities.cities;
+    } catch (error) {
+      throw new Error('Failed to fetch weather data');
+    }
+  }
+);
+
+
+export const fetchRealtimeWeather = createAsyncThunk(
+  'weather/fetchRealtimeWeather',
+  async (city: string) => {
+    try {
+      const response = await fetchRealtimeWeatherData(city);
       const { location, current } = response.data;
 
-      const fetchData = {
+      const realtimeData = {
         entities: {
           locations: {
             [location.name]: {
@@ -33,7 +74,7 @@ export const fetchWeather = createAsyncThunk(
         result: current.last_updated,
       };
 
-      return fetchData;
+      return realtimeData;
     } catch (error) {
       throw new Error('Failed to fetch weather data');
     }

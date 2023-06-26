@@ -1,14 +1,17 @@
 import { createSlice, PayloadAction } from '@reduxjs/toolkit';
-import { fetchWeather } from '../thunks/weatherThunks';
+import { fetchRealtimeWeather, fetchSearchResults } from '../thunks/weatherThunks';
+import Search from '../../components/Search/Search';
 
 interface WeatherState {
-    data: any;
+    realtimeData: any;
+    searchData: any;
     isLoading: boolean;
     error: string | null;
 }
 
 const initialState: WeatherState = {
-    data: null,
+    realtimeData: null,
+    searchData: null,
     isLoading: false,
     error: null,
 };
@@ -18,20 +21,34 @@ const weatherSlice = createSlice({
     initialState,
     reducers: {},
     extraReducers: (builder) => {
-        builder.addCase(fetchWeather.pending, (state) => {
+        builder.addCase(fetchRealtimeWeather.pending, (state) => {
             state.isLoading = true;
             state.error = null;
         });
 
-        builder.addCase(fetchWeather.fulfilled, (state, action: PayloadAction<any>) => {
+        builder.addCase(fetchRealtimeWeather.fulfilled, (state, action: PayloadAction<any>) => {
             state.isLoading = false;
-            state.data = action.payload.entities;
+            state.realtimeData = action.payload.entities;
         });
 
-
-        builder.addCase(fetchWeather.rejected, (state) => {
+        builder.addCase(fetchRealtimeWeather.rejected, (state) => {
             state.isLoading = false;
             state.error = 'Failed to fetch weather data';
+        });
+
+        builder.addCase(fetchSearchResults.pending, (state) => {
+            state.isLoading = true;
+            state.error = null;
+        });
+
+        builder.addCase(fetchSearchResults.fulfilled, (state, action: PayloadAction<any>) => {
+            state.isLoading = false;
+            state.searchData = action.payload;
+        });
+
+        builder.addCase(fetchSearchResults.rejected, (state) => {
+            state.isLoading = false;
+            state.error = 'Failed to fetch search results';
         });
     },
 });

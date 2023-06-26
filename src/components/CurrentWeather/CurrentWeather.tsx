@@ -1,6 +1,6 @@
 import React, { useEffect } from 'react';
 import { useSelector, useDispatch } from 'react-redux';
-import { fetchWeather } from '../../store/thunks/weatherThunks';
+import { fetchRealtimeWeather } from '../../store/thunks/weatherThunks';
 import { AppStore, AppDispatch } from '../../store/store';
 
 
@@ -11,13 +11,13 @@ const CurrentWeather: React.FC<CurrentWeatherProps> = () => {
     const dispatch: AppDispatch = useDispatch();
 
     const { data, isLoading, error } = useSelector((state: AppStore) => ({
-        data: state.weather.data,
+        data: state.weather.realtimeData,
         isLoading: state.weather.isLoading,
         error: state.weather.error,
     }));
 
     useEffect(() => {
-        dispatch(fetchWeather('Paris'));
+        dispatch(fetchRealtimeWeather('Paris'));
     }, [dispatch]);
 
     return (

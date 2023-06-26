@@ -3,6 +3,7 @@ import { useSelector, useDispatch } from 'react-redux';
 import { AppStore } from '../store/store';
 import { toggleDarkMode } from '../store/reducers/appReducer';
 import CurrentWeather from '../components/CurrentWeather/CurrentWeather';
+import Search from '../components/Search/Search';
 
 const Home: React.FC = () => {
     const dispatch = useDispatch();
@@ -22,6 +23,7 @@ const Home: React.FC = () => {
     return (
         <div>
             <CurrentWeather />
+            <Search />
             <button onClick={handleToggleDarkMode}>
                 Toggle Dark Mode
             </button>
