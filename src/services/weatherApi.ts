@@ -22,12 +22,13 @@ export const fetchSearchData = async (city: string) => {
     }
 };
 
-export const fetchRealtimeWeatherData = async (city: string) => {
+export const fetchRealtimeWeatherData = async (lat: number, lon: number) => {
+    const location = `${lat},${lon}`;
     const config = {
         'method': 'GET',
         'url': 'https://weatherapi-com.p.rapidapi.com/current.json',
         'params': {
-            q: city
+            q: location
         },
         'headers': {
             'X-RapidAPI-Key': process.env.REACT_APP_API_KEY,

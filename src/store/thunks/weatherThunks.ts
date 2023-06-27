@@ -45,9 +45,9 @@ export const fetchSearchResults = createAsyncThunk(
 
 export const fetchRealtimeWeather = createAsyncThunk(
   'weather/fetchRealtimeWeather',
-  async (city: string) => {
+  async ({ lat, lon }: { lat: number; lon: number }) => {
     try {
-      const response = await fetchRealtimeWeatherData(city);
+      const response = await fetchRealtimeWeatherData(lat, lon);
       const { location, current } = response.data;
 
       const realtimeData = {

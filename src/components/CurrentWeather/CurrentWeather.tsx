@@ -17,7 +17,7 @@ const CurrentWeather: React.FC<CurrentWeatherProps> = () => {
     }));
 
     useEffect(() => {
-        dispatch(fetchRealtimeWeather('Paris'));
+        // dispatch(fetchRealtimeWeather(12, 32));
     }, [dispatch]);
 
     return (
