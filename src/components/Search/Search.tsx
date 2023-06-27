@@ -1,6 +1,6 @@
 import React, { useState, useEffect } from 'react';
 import { useDispatch, useSelector } from 'react-redux';
-import { fetchSearchResults, fetchRealtimeWeather } from '../../store/thunks/weatherThunks';
+import { fetchSearchResults, fetchRealtimeWeather, fetchForecastWeather, fetchAstronomy } from '../../store/thunks/weatherThunks';
 import { AppStore, AppDispatch } from '../../store/store';
 import './Search.scss';
 
@@ -24,8 +24,13 @@ const Search: React.FC = () => {
     };
 
     const handleCityClick = (cityLat: number, cityLon: number) => {
-        dispatch(fetchRealtimeWeather({ lat: cityLat, lon: cityLon }));
-        setShowResults(false);
+        Promise.all([
+            dispatch(fetchRealtimeWeather({ lat: cityLat, lon: cityLon })),
+            dispatch(fetchForecastWeather({ lat: cityLat, lon: cityLon })),
+            dispatch(fetchAstronomy({ lat: cityLat, lon: cityLon }))
+        ]).then(() => {
+            setShowResults(false);
+        });
     };
 
     const handleKeyPress = (e: React.KeyboardEvent<HTMLInputElement>) => {

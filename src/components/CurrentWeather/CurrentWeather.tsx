@@ -1,6 +1,6 @@
 import React, { useEffect } from 'react';
 import { useSelector, useDispatch } from 'react-redux';
-import { fetchRealtimeWeather } from '../../store/thunks/weatherThunks';
+// import { fetchRealtimeWeather } from '../../store/thunks/weatherThunks';
 import { AppStore, AppDispatch } from '../../store/store';
 
 
@@ -10,8 +10,10 @@ interface CurrentWeatherProps { }
 const CurrentWeather: React.FC<CurrentWeatherProps> = () => {
     const dispatch: AppDispatch = useDispatch();
 
-    const { data, isLoading, error } = useSelector((state: AppStore) => ({
-        data: state.weather.realtimeData,
+    const { realtimeResults, forecastResults, astronomyResults, isLoading, error } = useSelector((state: AppStore) => ({
+        realtimeResults: state.weather.realtimeData,
+        forecastResults: state.weather.forecastData,
+        astronomyResults: state.weather.astronomyData,
         isLoading: state.weather.isLoading,
         error: state.weather.error,
     }));
@@ -27,7 +29,11 @@ const CurrentWeather: React.FC<CurrentWeatherProps> = () => {
             ) : error ? (
                 <p>Error: {error}</p>
             ) : (
-                <p>Weather data: {JSON.stringify(data)}</p>
+                <div>
+                    <p>Weather data: {JSON.stringify(realtimeResults)}</p>
+                    <p>Forecast data: {JSON.stringify(forecastResults)}</p>
+                    <p>Astronomy data: {JSON.stringify(astronomyResults)}</p>
+                </div>
             )}
         </div>
     );

@@ -1,10 +1,12 @@
 import { createSlice, PayloadAction } from '@reduxjs/toolkit';
-import { fetchRealtimeWeather, fetchSearchResults } from '../thunks/weatherThunks';
+import { fetchSearchResults, fetchRealtimeWeather, fetchForecastWeather, fetchAstronomy } from '../thunks/weatherThunks';
 
 
 interface WeatherState {
     realtimeData: any;
     searchData: any;
+    forecastData: any;
+    astronomyData: any;
     isLoading: boolean;
     error: string | null;
 }
@@ -12,6 +14,8 @@ interface WeatherState {
 const initialState: WeatherState = {
     realtimeData: null,
     searchData: null,
+    forecastData: null,
+    astronomyData: null,
     isLoading: false,
     error: null,
 };
@@ -37,17 +41,47 @@ const weatherSlice = createSlice({
         });
 
         builder.addCase(fetchRealtimeWeather.pending, (state) => {
-            state.isLoading = true;
+            // state.isLoading = true;
             state.error = null;
         });
 
         builder.addCase(fetchRealtimeWeather.fulfilled, (state, action: PayloadAction<any>) => {
-            state.isLoading = false;
-            state.realtimeData = action.payload.entities;
+            // state.isLoading = false;
+            state.realtimeData = action.payload;
         });
 
         builder.addCase(fetchRealtimeWeather.rejected, (state) => {
-            state.isLoading = false;
+            // state.isLoading = false;
+            state.error = 'Failed to fetch weather data';
+        });
+
+        builder.addCase(fetchForecastWeather.pending, (state) => {
+            // state.isLoading = true;
+            state.error = null;
+        });
+
+        builder.addCase(fetchForecastWeather.fulfilled, (state, action: PayloadAction<any>) => {
+            // state.isLoading = false;
+            state.forecastData = action.payload;
+        });
+
+        builder.addCase(fetchForecastWeather.rejected, (state) => {
+            // state.isLoading = false;
+            state.error = 'Failed to fetch weather data';
+        });
+
+        builder.addCase(fetchAstronomy.pending, (state) => {
+            // state.isLoading = true;
+            state.error = null;
+        });
+
+        builder.addCase(fetchAstronomy.fulfilled, (state, action: PayloadAction<any>) => {
+            // state.isLoading = false;
+            state.astronomyData = action.payload;
+        });
+
+        builder.addCase(fetchAstronomy.rejected, (state) => {
+            // state.isLoading = false;
             state.error = 'Failed to fetch weather data';
         });
     },
