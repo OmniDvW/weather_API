@@ -3,6 +3,7 @@ import { useDispatch, useSelector } from 'react-redux';
 import { fetchSearchResults, fetchRealtimeWeather, fetchForecastWeather, fetchAstronomy } from '../../store/thunks/weatherThunks';
 import { AppStore, AppDispatch } from '../../store/store';
 import './Search.scss';
+import SearchIcon from '@mui/icons-material/Search';
 
 const Search: React.FC = () => {
     const [searchText, setSearchText] = useState('');
@@ -24,13 +25,15 @@ const Search: React.FC = () => {
     };
 
     const handleCityClick = (cityLat: number, cityLon: number) => {
-        Promise.all([
-            dispatch(fetchRealtimeWeather({ lat: cityLat, lon: cityLon })),
-            dispatch(fetchForecastWeather({ lat: cityLat, lon: cityLon })),
-            dispatch(fetchAstronomy({ lat: cityLat, lon: cityLon }))
-        ]).then(() => {
-            setShowResults(false);
-        });
+        // Promise.all([
+        //     dispatch(fetchRealtimeWeather({ lat: cityLat, lon: cityLon })),
+        //     dispatch(fetchForecastWeather({ lat: cityLat, lon: cityLon })),
+        //     dispatch(fetchAstronomy({ lat: cityLat, lon: cityLon }))
+        // ]).then(() => {
+        //     setShowResults(false);
+        // });
+        dispatch(fetchForecastWeather({ lat: cityLat, lon: cityLon }));
+        setShowResults(false);
     };
 
     const handleKeyPress = (e: React.KeyboardEvent<HTMLInputElement>) => {
@@ -71,13 +74,17 @@ const Search: React.FC = () => {
     };
 
     return (
-        <div>
-            <input
-                type="text"
-                value={searchText}
-                onChange={handleSearchInputChange}
-                onKeyDown={handleKeyPress}
-            />
+        <div className='search-wrapper'>
+            <div className='search-bar'>
+                <SearchIcon />
+                <input
+                    type="text"
+                    value={searchText}
+                    onChange={handleSearchInputChange}
+                    onKeyDown={handleKeyPress}
+                />
+            </div>
+
             <ul>
                 {showResults &&
                     searchResults &&

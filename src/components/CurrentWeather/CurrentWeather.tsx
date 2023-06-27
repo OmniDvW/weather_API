@@ -18,9 +18,9 @@ const CurrentWeather: React.FC<CurrentWeatherProps> = () => {
         error: state.weather.error,
     }));
 
-    useEffect(() => {
-        // dispatch(fetchRealtimeWeather(12, 32));
-    }, [dispatch]);
+    // useEffect(() => {
+    //     dispatch(fetchRealtimeWeather(12, 32));
+    // }, [dispatch]);
 
     return (
         <div>

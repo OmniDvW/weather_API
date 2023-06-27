@@ -1,5 +1,9 @@
 import React from 'react';
-import Home from './pages/Home';
+import Navbar from './components/Navbar/Navbar';
+import Search from './components/Search/Search';
+import Weather from './pages/Weather/Weather';
+import Footer from './components/Footer/Footer';
+import './styles/app.scss';
 // import { useSelector } from 'react-redux';
 // import { ThemeProvider } from 'styled-components';
 // import { AppStore } from './store/store';
@@ -8,10 +12,13 @@ import Home from './pages/Home';
 const App: React.FC = () => {
   // const darkMode = useSelector((state: AppStore) => state.app.darkMode);
   return (
-    // <ThemeProvider theme={darkMode ? darkTheme : lightTheme}>
-    //   <GlobalStyles />
-    <Home />
-    // </ThemeProvider> 
+    <div className='app-wrapper'>
+      <Navbar />
+      <Search />
+      <Weather />
+      <Footer />
+    </div>
+
   );
 };
 

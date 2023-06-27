@@ -56,17 +56,17 @@ const weatherSlice = createSlice({
         });
 
         builder.addCase(fetchForecastWeather.pending, (state) => {
-            // state.isLoading = true;
+            state.isLoading = true;
             state.error = null;
         });
 
         builder.addCase(fetchForecastWeather.fulfilled, (state, action: PayloadAction<any>) => {
-            // state.isLoading = false;
+            state.isLoading = false;
             state.forecastData = action.payload;
         });
 
         builder.addCase(fetchForecastWeather.rejected, (state) => {
-            // state.isLoading = false;
+            state.isLoading = false;
             state.error = 'Failed to fetch weather data';
         });
 

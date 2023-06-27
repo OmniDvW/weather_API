@@ -1,3 +1,42 @@
+.search-wrapper {
+    height: 5rem;
+    width: 100%;
+    background-color: green;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+
+    .search-bar {
+        height: 2rem;
+        width: 30rem;
+        display: flex;
+        justify-content: space-around;
+        align-items: center;
+        background-color: red;
+        border-radius: 5px;
+
+        svg {
+            width: 1.5rem;
+            height: 1.5rem;
+            margin-right: 0.5rem;
+            margin-left: 0.5rem;
+        }
+
+        input {
+            height: 1.5rem;
+            width: 100%;
+            display: flex;
+            justify-content: flex-start;
+            align-items: center;
+            background-color: transparent;
+            border: none;
+            outline: none;
+        }
+    }
+}
+
+
+
 .selected {
     background-color: red;
 }
