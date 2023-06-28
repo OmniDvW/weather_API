@@ -35,17 +35,24 @@ const Search: React.FC = () => {
         };
     }, []);
 
-
     const handleSearchInputChange = (e: React.ChangeEvent<HTMLInputElement>) => {
         const { value } = e.target;
         setSearchText(value);
         setShowResults(true);
     };
 
-    const handleCityClick = async (cityName: string, cityLat: number, cityLon: number) => {
-        dispatch(fetchForecastWeather({ name: cityName, lat: cityLat, lon: cityLon }));
-        dispatch(fetchAstronomy({ lat: cityLat, lon: cityLon }));
-        setShowResults(false);
+    const handleCityClick = (cityName: string, cityLat: number, cityLon: number) => {
+        Promise.all([
+            dispatch(fetchForecastWeather({ name: cityName, lat: cityLat, lon: cityLon })),
+            dispatch(fetchAstronomy({ lat: cityLat, lon: cityLon }))
+        ])
+            .then(() => {
+                setShowResults(false);
+                setSearchText('');
+            })
+            .catch(error => {
+                console.error(error);
+            });
     };
 
     const handleKeyPress = (e: React.KeyboardEvent<HTMLInputElement>) => {

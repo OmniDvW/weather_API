@@ -6,7 +6,7 @@
     display: flex;
     justify-content: center;
     align-items: center;
-    color: red;
+    color: var(--icon-color);
 
     .current-weather-contain {
         height: 55vh;
@@ -15,6 +15,8 @@
         background-color: var(--bg-light-color);
         margin-top: 5vh;
         padding: 2rem;
+        display: flex;
+
 
         @media (min-width: 1900px) {
             width: 70rem;
@@ -28,8 +30,57 @@
             width: 90%;
         }
 
-        .current-weather-content {}
+        .current-weather-content {
+            width: 25rem;
+            // background-color: RED;
 
-        .astronomy-content {}
+            .current-weather-title {
+                display: flex;
+                flex-direction: column;
+
+                h2 {
+                    font-size: 2rem;
+                }
+            }
+
+            .current-weather-main {
+                width: 25rem;
+                // background-color: pink;
+                display: flex;
+
+                .current-weather-img {
+                    width: 12.5rem;
+                    display: flex;
+                    justify-content: center;
+                    align-items: center;
+
+                    img {
+                        height: 5rem;
+                    }
+                }
+
+
+
+                .current-weather-degree {
+                    width: 12.5rem;
+
+                    p {
+                        font-size: 5rem;
+                    }
+
+                    .span-degree {
+                        font-weight: 700;
+                    }
+                }
+            }
+
+            .current-weather-info {}
+        }
+
+
+        .astronomy-content {
+            width: 25rem;
+            // background-color: yellow;
+        }
     }
 }
