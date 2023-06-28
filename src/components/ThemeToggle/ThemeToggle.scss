@@ -1,0 +1,86 @@
+@import "../../styles/variables";
+
+
+.toggle-button {
+    margin-top: 2rem;
+
+    @media (max-width: 576px) {
+        margin-right: -1.3rem;
+    }
+}
+
+#toggle_checkbox {
+    display: none;
+}
+
+label {
+    display: block;
+    width: 58px;
+    height: 28px;
+    margin: 0 auto;
+    background-color: #77b5fe;
+    border-radius: 56px;
+    transform: translateY(-50%);
+    cursor: pointer;
+    transition: 0.3s ease background-color;
+    overflow: hidden;
+}
+
+#star {
+    position: absolute;
+    top: 4px;
+    left: 4px;
+    width: 20px;
+    height: 20px;
+    background-color: #fafd0f;
+    transform: scale(1);
+    border-radius: 50%;
+    transition: 0.3s ease top, 0.3s ease left, 0.3s ease transform, 0.3s ease background-color;
+    z-index: 1;
+}
+
+#moon {
+    position: absolute;
+    bottom: -26px;
+    right: 5%;
+    width: 20px;
+    height: 20px;
+    background-color: #fff;
+    border-radius: 50%;
+    transition: 0.3s ease bottom;
+}
+
+#moon:before {
+    content: "";
+    position: absolute;
+    top: -6px;
+    left: -8.5px;
+    width: 20px;
+    height: 20px;
+    background-color: #03a9f4;
+    border-radius: 50%;
+    transition: 0.3s ease background-color;
+}
+
+#toggle_checkbox:checked+label {
+    background-color: #051a33;
+}
+
+#toggle_checkbox:checked+label #star {
+    top: 1.5px;
+    left: 32px;
+    transform: scale(0);
+    background-color: yellow;
+}
+
+#toggle_checkbox:checked+label .star {
+    color: yellow;
+}
+
+#toggle_checkbox:checked+label #moon {
+    bottom: 4px;
+}
+
+#toggle_checkbox:checked+label #moon:before {
+    background-color: #051a33;
+}

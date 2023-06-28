@@ -1,4 +1,4 @@
-import React, { useState, useEffect } from 'react';
+import React, { useState, useEffect, useRef } from 'react';
 import { useDispatch, useSelector } from 'react-redux';
 import { fetchSearchResults, fetchForecastWeather } from '../../store/thunks/weatherThunks';
 import { AppStore, AppDispatch } from '../../store/store';
@@ -13,12 +13,28 @@ const Search: React.FC = () => {
     const [showResults, setShowResults] = useState<boolean>(true);
     const dispatch: AppDispatch = useDispatch();
     const searchResults = useSelector((state: AppStore) => state.weather.searchData);
+    const ulRef = useRef<HTMLUListElement>(null);
 
     useEffect(() => {
         if (searchText) {
             dispatch(fetchSearchResults(searchText));
         }
     }, [searchText, dispatch]);
+
+    useEffect(() => {
+        const handleClickOutside = (event: MouseEvent) => {
+            if (ulRef.current && !ulRef.current.contains(event.target as Node)) {
+                setShowResults(false);
+            }
+        };
+
+        document.body.addEventListener('click', handleClickOutside);
+
+        return () => {
+            document.body.removeEventListener('click', handleClickOutside);
+        };
+    }, []);
+
 
     const handleSearchInputChange = (e: React.ChangeEvent<HTMLInputElement>) => {
         const { value } = e.target;
@@ -74,13 +90,14 @@ const Search: React.FC = () => {
                 <SearchIcon />
                 <input
                     type="text"
+                    placeholder='La météo pour...'
                     value={searchText}
                     onChange={handleSearchInputChange}
                     onKeyDown={handleKeyPress}
                 />
             </div>
 
-            <ul className={showResults && searchResults && Object.keys(searchResults).length > 0 ? 'show-search-results' : ''}>
+            <ul ref={ulRef} className={showResults && searchResults && Object.keys(searchResults).length > 0 ? 'show-search-results' : ''}>
                 {showResults &&
                     searchResults &&
                     Object.keys(searchResults).length > 0 &&

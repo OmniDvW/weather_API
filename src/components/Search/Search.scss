@@ -1,11 +1,10 @@
 @import "../../styles/variables";
 
+
 .search-wrapper {
     height: 5rem;
     width: 100%;
-    // background-color: green;
     display: flex;
-    // flex-direction: column;
     justify-content: center;
     align-items: center;
 
@@ -15,14 +14,24 @@
         display: flex;
         justify-content: space-around;
         align-items: center;
-        background-color: red;
-        border-radius: 5px;
+        background-color: var(--bg-light-color);
+        border-radius: 25px;
+
+        @media (max-width: 992px) {
+            width: 80%;
+        }
+
+        @media (max-width: 576px) {
+            width: 90%;
+        }
+
 
         svg {
-            width: 2.5rem;
-            height: 2.5rem;
+            width: 1.8rem;
+            height: 1.8rem;
             margin-right: 0.5rem;
-            margin-left: 0.5rem;
+            margin-left: 1rem;
+            color: var(--icon-color);
         }
 
         input {
@@ -34,25 +43,40 @@
             background-color: transparent;
             border: none;
             outline: none;
+            color: var(--icon-color);
+            font-size: 1rem;
         }
     }
 
     ul {
         height: 12rem;
         width: 50rem;
-        background-color: pink;
+        background-color: var(--bg-light-color);
         position: absolute;
-        top: 11.4rem;
+        top: 12.04rem;
         display: none;
         overflow-x: hidden;
         z-index: 999;
+        color: var(--icon-color);
+
+        // border-radius: 25px;
+        @media (max-width: 992px) {
+            width: 80%;
+        }
+
+        @media (max-width: 576px) {
+            top: 10.04rem;
+            width: 90%;
+        }
+
+
 
         li {
             height: 3rem;
             display: flex;
             justify-content: flex-start;
             align-items: center;
-            border-bottom: 1px solid orange;
+            border-bottom: 1px solid var(--select-color);
 
             svg {
                 height: 2rem;
@@ -66,7 +90,7 @@
         }
 
         .city-selected {
-            background-color: red;
+            background-color: var(--select-color);
         }
     }
 
