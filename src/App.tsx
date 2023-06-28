@@ -4,8 +4,8 @@ import { AppStore } from './store/store';
 import Navbar from './components/Navbar/Navbar';
 import Search from './components/Search/Search';
 import Weather from './pages/Weather/Weather';
+import BackgroundAnimation from './components/BackgroundAnimation/BackgroundAnimation';
 import HomeAnimation from './components/HomeAnimation/HomeAnimation';
-// import Footer from './components/Footer/Footer';
 import './styles/app.scss';
 
 
@@ -19,6 +19,7 @@ const App: React.FC = () => {
 
   return (
     <div className='app-wrapper'>
+      <BackgroundAnimation />
       <Navbar />
       <Search />
       {isLoading ? (
@@ -36,13 +37,7 @@ const App: React.FC = () => {
           }
         </div>
       )}
-      <section>
-        <div className='air air1'></div>
-        <div className='air air2'></div>
-        <div className='air air3'></div>
-        <div className='air air4'></div>
-      </section>
-      <div className='sign'> <span>Developed by </span><a href="https://github.com/OmniDvW">OmniDvW</a></div>
+      <div className='sign'> <span>Developed by </span><a href="https://github.com/OmniDvW" target='blank' >OmniDvW</a></div>
     </div>
 
   );
