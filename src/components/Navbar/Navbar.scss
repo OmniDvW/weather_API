@@ -1,13 +1,12 @@
-nav {
-    height: 5rem;
+.nav {
+    height: 8rem;
     width: 100%;
-    // background-color: yellow;
     display: flex;
     justify-content: center;
     align-items: center;
 
     h1 {
-        font-size: 2rem;
+        font-size: 4rem;
         text-align: center;
     }
 }

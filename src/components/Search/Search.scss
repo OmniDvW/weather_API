@@ -10,8 +10,8 @@
     align-items: center;
 
     .search-bar {
-        height: 2rem;
-        width: 40rem;
+        height: 3rem;
+        width: 50rem;
         display: flex;
         justify-content: space-around;
         align-items: center;
@@ -19,14 +19,14 @@
         border-radius: 5px;
 
         svg {
-            width: 1.5rem;
-            height: 1.5rem;
+            width: 2.5rem;
+            height: 2.5rem;
             margin-right: 0.5rem;
             margin-left: 0.5rem;
         }
 
         input {
-            height: 1.5rem;
+            height: 2.5rem;
             width: 100%;
             display: flex;
             justify-content: flex-start;
@@ -39,12 +39,13 @@
 
     ul {
         height: 12rem;
-        width: 40rem;
+        width: 50rem;
         background-color: pink;
         position: absolute;
-        top: 8.4rem;
+        top: 11.4rem;
         display: none;
         overflow-x: hidden;
+        z-index: 999;
 
         li {
             height: 3rem;

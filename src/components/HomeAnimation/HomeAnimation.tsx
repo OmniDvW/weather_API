@@ -4,9 +4,9 @@ import './HomeAnimation.scss';
 const HomeAnimation: React.FC = () => {
     return (
         <div className='home-animation'>
-            <div className='home-title'>
-                <h1>WEATHER APP</h1>
-            </div>
+            {/* <div className='home-title'>
+                <h1>OMNI METEO</h1>
+            </div> */}
             <div className="home-animation-wrapper">
                 <div className="sun"></div>
                 <div className="cloud">
