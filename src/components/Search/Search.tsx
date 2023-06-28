@@ -1,6 +1,6 @@
 import React, { useState, useEffect, useRef } from 'react';
 import { useDispatch, useSelector } from 'react-redux';
-import { fetchSearchResults, fetchForecastWeather } from '../../store/thunks/weatherThunks';
+import { fetchSearchResults, fetchForecastWeather, fetchAstronomy } from '../../store/thunks/weatherThunks';
 import { AppStore, AppDispatch } from '../../store/store';
 import './Search.scss';
 import SearchIcon from '@mui/icons-material/Search';
@@ -43,7 +43,8 @@ const Search: React.FC = () => {
     };
 
     const handleCityClick = async (cityName: string, cityLat: number, cityLon: number) => {
-        dispatch(fetchForecastWeather({ name: cityName, lat: cityLat, lon: cityLon }));;
+        dispatch(fetchForecastWeather({ name: cityName, lat: cityLat, lon: cityLon }));
+        dispatch(fetchAstronomy({ lat: cityLat, lon: cityLon }));
         setShowResults(false);
     };
 

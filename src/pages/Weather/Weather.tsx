@@ -25,19 +25,6 @@ const Weather: React.FC = () => {
 
     return (
         <div className='weather-wrapper'>
-            {/* {isLoading ? (
-                <HomeAnimation />
-            ) : error ? (
-                <p>Error: {error}</p>
-            ) : (
-                <div>
-                    {!forecastData &&
-                        <HomeAnimation />}
-                    {forecastData &&
-                        <CurrentWeather />
-                    }
-                </div>
-            )} */}
             <CurrentWeather />
         </div>
     );

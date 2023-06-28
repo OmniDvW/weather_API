@@ -123,58 +123,6 @@ export const fetchForecastWeather = createAsyncThunk(
   }
 );
 
-// export const fetchForecastWeatherByName = createAsyncThunk(
-//   'weather/fetchForecastWeatherByName',
-//   async (name: string) => {
-//     try {
-//       const response = await fetchForecastWeatherDataByName(name);
-//       const { location, current, forecast } = response.data;
-
-//       const forecastData = {
-//         location: {
-//           name: location.name,
-//           region: location.region,
-//           country: location.country,
-//           lat: location.lat,
-//           lon: location.lon,
-//           tz_id: location.tz_id,
-//           localtime: location.localtime
-//         },
-//         currentWeather: {
-//           last_updated: current.last_updated,
-//           temp_c: current.temp_c,
-//           temp_f: current.temp_f,
-//           feelslike_c: current.feelslike_c,
-//           feelslike_f: current.feelslike_f,
-//           humidity: current.humidity,
-//           precip_in: current.precip_in,
-//           precip_mm: current.precip_mm,
-//           pressure_in: current.pressure_in,
-//           pressure_mb: current.pressure_mb,
-//           wind_degree: current.wind_degree,
-//           wind_dir: current.wind_dir,
-//           wind_kph: current.wind_kph,
-//           wind_mph: current.wind_mph,
-//           gust_kph: current.gust_kph,
-//           gust_mph: current.gust_mph,
-//           uv: current.uv,
-//           condition: {
-//             icon: current.condition.icon,
-//             text: current.condition.text
-//           }
-//         },
-//         forecastDays: forecast
-//       };
-
-//       return forecastData;
-//     } catch (error) {
-//       throw new Error('Failed to fetch weather data');
-//     }
-//   }
-// );
-
-
-
 
 export const fetchAstronomy = createAsyncThunk(
   'weather/fetchAstronomy',

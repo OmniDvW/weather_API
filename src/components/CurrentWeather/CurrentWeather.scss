@@ -6,6 +6,7 @@
     display: flex;
     justify-content: center;
     align-items: center;
+    color: red;
 
     .current-weather-contain {
         height: 55vh;
@@ -13,6 +14,7 @@
         border-radius: 25px;
         background-color: var(--bg-light-color);
         margin-top: 5vh;
+        padding: 2rem;
 
         @media (min-width: 1900px) {
             width: 70rem;
@@ -25,5 +27,9 @@
         @media (max-width: 576px) {
             width: 90%;
         }
+
+        .current-weather-content {}
+
+        .astronomy-content {}
     }
 }
