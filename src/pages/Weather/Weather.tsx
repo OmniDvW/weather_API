@@ -1,31 +1,24 @@
 import React, { useEffect } from 'react';
-import { useSelector, useDispatch } from 'react-redux';
-import { AppStore } from '../../store/store';
-import { toggleDarkMode } from '../../store/reducers/appReducer';
+// import { useSelector, useDispatch } from 'react-redux';
+// import { AppStore, AppDispatch } from '../../store/store';
 import CurrentWeather from '../../components/CurrentWeather/CurrentWeather';
 
 
 const Weather: React.FC = () => {
-    const dispatch = useDispatch();
+    // const dispatch: AppDispatch = useDispatch();
+    // const forecastResults = useSelector((state: AppStore) => state.weather.forecastData);
 
-    // const { darkMode } = useSelector((state: AppStore) => ({
-    //     darkMode: state.app.darkMode,
-    // }));
+    useEffect(() => {
 
-    // useEffect(() => {
-    //     console.log(darkMode); // Affiche l'état de darkMode dans la console
-    // }, [darkMode]);
+    }, []);
 
-    // const handleToggleDarkMode = () => {
-    //     dispatch(toggleDarkMode());
-    // };
+
 
     return (
         <div>
+
             <CurrentWeather />
-            {/* <button onClick={handleToggleDarkMode}>
-                Toggle Dark Mode
-            </button> */}
+
         </div>
 
     );

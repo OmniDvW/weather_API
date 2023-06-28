@@ -1,9 +1,11 @@
 import React, { useState, useEffect } from 'react';
 import { useDispatch, useSelector } from 'react-redux';
-import { fetchSearchResults, fetchRealtimeWeather, fetchForecastWeather, fetchAstronomy } from '../../store/thunks/weatherThunks';
+import { fetchSearchResults, fetchForecastWeather } from '../../store/thunks/weatherThunks';
 import { AppStore, AppDispatch } from '../../store/store';
 import './Search.scss';
 import SearchIcon from '@mui/icons-material/Search';
+import PlaceIcon from '@mui/icons-material/Place';
+
 
 const Search: React.FC = () => {
     const [searchText, setSearchText] = useState('');
@@ -24,15 +26,8 @@ const Search: React.FC = () => {
         setShowResults(true);
     };
 
-    const handleCityClick = (cityLat: number, cityLon: number) => {
-        // Promise.all([
-        //     dispatch(fetchRealtimeWeather({ lat: cityLat, lon: cityLon })),
-        //     dispatch(fetchForecastWeather({ lat: cityLat, lon: cityLon })),
-        //     dispatch(fetchAstronomy({ lat: cityLat, lon: cityLon }))
-        // ]).then(() => {
-        //     setShowResults(false);
-        // });
-        dispatch(fetchForecastWeather({ lat: cityLat, lon: cityLon }));
+    const handleCityClick = async (cityName: string, cityLat: number, cityLon: number) => {
+        dispatch(fetchForecastWeather({ name: cityName, lat: cityLat, lon: cityLon }));;
         setShowResults(false);
     };
 
@@ -42,7 +37,7 @@ const Search: React.FC = () => {
             const selectedCityKey = Object.keys(searchResults)[selectedCityIndex];
             const selectedCity = searchResults[selectedCityKey];
             if (selectedCity) {
-                handleCityClick(selectedCity.lat, selectedCity.lon);
+                handleCityClick(selectedCity.name, selectedCity.lat, selectedCity.lon);
             }
         }
 
@@ -85,27 +80,31 @@ const Search: React.FC = () => {
                 />
             </div>
 
-            <ul>
+            <ul className={showResults && searchResults && Object.keys(searchResults).length > 0 ? 'show-search-results' : ''}>
                 {showResults &&
                     searchResults &&
                     Object.keys(searchResults).length > 0 &&
                     Object.keys(searchResults).map((key: string, index: number) => {
                         const city = searchResults[key];
                         const isSelected = index === selectedCityIndex;
-                        const className = isSelected ? 'selected' : '';
+                        const className = isSelected ? 'city-selected' : '';
 
                         return (
                             <li
                                 key={city.url}
                                 className={className}
-                                onClick={() => handleCityClick(city.lat, city.lon)}
+                                onClick={() => handleCityClick(city.name, city.lat, city.lon)}
                                 onMouseEnter={() => handleMouseEnter(index)}
                             >
-                                <span>{city.name}</span>
-                                <span>
-                                    <span>{city.region}</span>
-                                    <span>{city.country}</span>
-                                </span>
+                                <PlaceIcon />
+                                <div className='city'>
+                                    <p>{city.name}</p>
+                                    <span>
+                                        <span>{city.region}, </span>
+                                        <span>{city.country}</span>
+                                    </span>
+                                </div>
+
                             </li>
                         );
                     })}

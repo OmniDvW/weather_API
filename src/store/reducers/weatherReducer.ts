@@ -70,6 +70,21 @@ const weatherSlice = createSlice({
             state.error = 'Failed to fetch weather data';
         });
 
+        // builder.addCase(fetchForecastWeatherByName.pending, (state) => {
+        //     state.isLoading = true;
+        //     state.error = null;
+        // });
+
+        // builder.addCase(fetchForecastWeatherByName.fulfilled, (state, action: PayloadAction<any>) => {
+        //     state.isLoading = false;
+        //     state.forecastData = action.payload;
+        // });
+
+        // builder.addCase(fetchForecastWeatherByName.rejected, (state) => {
+        //     state.isLoading = false;
+        //     state.error = 'Failed to fetch weather data';
+        // });
+
         builder.addCase(fetchAstronomy.pending, (state) => {
             // state.isLoading = true;
             state.error = null;

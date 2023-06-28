@@ -3,12 +3,13 @@
     width: 100%;
     background-color: green;
     display: flex;
+    // flex-direction: column;
     justify-content: center;
     align-items: center;
 
     .search-bar {
         height: 2rem;
-        width: 30rem;
+        width: 40rem;
         display: flex;
         justify-content: space-around;
         align-items: center;
@@ -33,10 +34,40 @@
             outline: none;
         }
     }
-}
+
+    ul {
+        height: 12rem;
+        width: 40rem;
+        background-color: pink;
+        position: absolute;
+        top: 8.4rem;
+        display: none;
+        overflow-x: hidden;
+
+        li {
+            height: 3rem;
+            display: flex;
+            justify-content: flex-start;
+            align-items: center;
+            border-bottom: 1px solid orange;
+
+            svg {
+                height: 2rem;
+                margin: 0.5rem;
+            }
 
 
+            .city {
+                p {}
+            }
+        }
 
-.selected {
-    background-color: red;
+        .city-selected {
+            background-color: red;
+        }
+    }
+
+    .show-search-results {
+        display: block;
+    }
 }
