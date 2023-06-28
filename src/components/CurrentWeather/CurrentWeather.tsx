@@ -1,33 +1,27 @@
 import React, { useEffect } from 'react';
 import { useSelector } from 'react-redux';
 import { AppStore } from '../../store/store';
+import './CurrentWeather.scss';
 
 
-interface CurrentWeatherProps { }
-
-const CurrentWeather: React.FC<CurrentWeatherProps> = () => {
 
 
-    const forecastResults = useSelector((state: AppStore) => state.weather.forecastData);
+const CurrentWeather: React.FC = () => {
+
+
+    const data = useSelector((state: AppStore) => state.weather.forecastData);
 
     // useEffect(() => {
 
     // }, [forecastResults]);
 
     return (
-        <div>
-            {/* {isLoading ? (
-                <p>Loading...</p>
-            ) : error ? (
-                <p>Error: {error}</p>
-            ) : (
-                <div>
-                    <p>Weather data: {JSON.stringify(realtimeResults)}</p>
-                    <p>Forecast data: {JSON.stringify(forecastResults)}</p>
-                    <p>Astronomy data: {JSON.stringify(astronomyResults)}</p>
-                </div>
-            )} */}
-            <p>Forecast data: {JSON.stringify(forecastResults)}</p>
+        <div className='current-weather-wrapper'>
+            <div className='current-weather-contain'>
+                {/* <p>Forecast data: {JSON.stringify(forecastResults)}</p> */}
+            </div>
+
+
         </div>
     );
 };

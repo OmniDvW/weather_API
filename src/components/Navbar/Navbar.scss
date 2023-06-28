@@ -18,6 +18,7 @@
         display: flex;
         justify-content: center;
         align-items: center;
+        z-index: 900;
 
         @media (max-width: 576px) {
             height: 6rem;
@@ -46,6 +47,7 @@
         display: flex;
         justify-content: center;
         align-items: center;
+        z-index: 900;
 
         @media (max-width: 576px) {
             height: 6rem;

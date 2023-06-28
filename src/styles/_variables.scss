@@ -16,7 +16,7 @@ $color-green: #3EA315;
     --text-color: #ffffff;
     --icon-color: #2f5d8a;
     --select-color: #adc4db;
-
+    --img-anim: url('../assets/img/wave-light.png');
     --color-1: #ffffff;
     --color-2: #f9f9f9;
     --color-3: #eef0f2;
@@ -27,6 +27,7 @@ $color-green: #3EA315;
 
 
     --component-bg-color: #ffffff;
+
 }
 
 :root[data-theme="theme-dark"] {
@@ -35,7 +36,7 @@ $color-green: #3EA315;
     --text-color: #2f5d8a;
     --icon-color: #2f5d8a;
     --select-color: #031527;
-
+    --img-anim: url('../assets/img/wave-dark.png');
     --color-1: #111518;
     --color-2: #1a2024;
     --color-3: #222a31;

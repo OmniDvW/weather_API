@@ -10,26 +10,36 @@ const Weather: React.FC = () => {
     // const dispatch: AppDispatch = useDispatch();
 
 
-    const forecastResults = useSelector((state: AppStore) => state.weather.forecastData);
+    const { forecastData, isLoading, error } = useSelector((state: AppStore) => ({
+        forecastData: state.weather.forecastData,
+        isLoading: state.weather.isLoading,
+        error: state.weather.error,
+    }));
+
 
     useEffect(() => {
-        console.log(forecastResults)
-    }, [forecastResults]);
+
+    }, [forecastData]);
 
 
 
     return (
         <div className='weather-wrapper'>
-            {!forecastResults &&
-                <HomeAnimation />}
-            {forecastResults &&
-                <CurrentWeather />
-            }
-
-
-
+            {/* {isLoading ? (
+                <HomeAnimation />
+            ) : error ? (
+                <p>Error: {error}</p>
+            ) : (
+                <div>
+                    {!forecastData &&
+                        <HomeAnimation />}
+                    {forecastData &&
+                        <CurrentWeather />
+                    }
+                </div>
+            )} */}
+            <CurrentWeather />
         </div>
-
     );
 };
 
