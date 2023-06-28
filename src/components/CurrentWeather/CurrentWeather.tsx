@@ -10,9 +10,9 @@ const CurrentWeather: React.FC<CurrentWeatherProps> = () => {
 
     const forecastResults = useSelector((state: AppStore) => state.weather.forecastData);
 
-    useEffect(() => {
+    // useEffect(() => {
 
-    }, [forecastResults]);
+    // }, [forecastResults]);
 
     return (
         <div>

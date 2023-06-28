@@ -16,7 +16,7 @@ const App: React.FC = () => {
       <Navbar />
       <Search />
       <Weather />
-      <Footer />
+      {/* <Footer /> */}
     </div>
 
   );
