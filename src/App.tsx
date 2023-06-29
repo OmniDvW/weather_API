@@ -1,4 +1,4 @@
-import React, { useEffect } from 'react';
+import React from 'react';
 import { useSelector } from 'react-redux';
 import { AppStore } from './store/store';
 import Navbar from './components/Navbar/Navbar';

@@ -1,11 +1,11 @@
-import React, { useEffect } from 'react';
+import React from 'react';
 import { useSelector } from 'react-redux';
 import { AppStore } from '../../store/store';
 import './CurrentWeather.scss';
 import WaterDropIcon from '@mui/icons-material/WaterDrop';
 import WaterIcon from '@mui/icons-material/Water';
 import AirIcon from '@mui/icons-material/Air';
-import CloudSyncIcon from '@mui/icons-material/CloudSync';
+// import CloudSyncIcon from '@mui/icons-material/CloudSync';
 import QueryBuilderIcon from '@mui/icons-material/QueryBuilder';
 import SouthIcon from '@mui/icons-material/South';
 import SouthEastIcon from '@mui/icons-material/SouthEast';
