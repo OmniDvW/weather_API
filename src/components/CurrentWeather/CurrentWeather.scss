@@ -16,6 +16,7 @@
         margin-top: 5vh;
         padding: 2rem;
         display: flex;
+        flex-direction: column;
 
 
         @media (min-width: 1900px) {
@@ -31,56 +32,113 @@
         }
 
         .current-weather-content {
-            width: 25rem;
-            // background-color: RED;
+            width: 100%;
+            z-index: 900;
 
             .current-weather-title {
                 display: flex;
-                flex-direction: column;
+                justify-content: space-between;
+                align-items: flex-start;
+                margin-bottom: 1rem;
 
-                h2 {
-                    font-size: 2rem;
+                .current-weather-title-left {
+                    h2 {
+                        font-size: 2rem;
+                        font-weight: 700;
+                    }
+
+                    p {
+                        margin-top: 0.2rem;
+                        margin-left: 0.1rem;
+                        font-style: italic;
+                    }
                 }
+
+                .current-weather-title-right {
+                    display: flex;
+
+
+
+                    svg {
+                        font-size: 2rem;
+                        margin-right: 0.1rem;
+                    }
+
+                    span {
+                        font-size: 1.5rem;
+                        margin-top: 0.3rem;
+                        font-weight: 700;
+                    }
+
+
+                }
+
+
             }
 
             .current-weather-main {
-                width: 25rem;
-                // background-color: pink;
+                width: 100%;
                 display: flex;
+                justify-content: flex-start;
+                align-items: center;
 
-                .current-weather-img {
-                    width: 12.5rem;
+
+                .current-weather-main-info {
+                    width: 100%;
+                    height: 15rem;
+                    background-color: var(--select-color);
                     display: flex;
-                    justify-content: center;
+                    justify-content: space-between;
                     align-items: center;
+                    padding: 2rem;
+                    border-radius: 25px;
 
-                    img {
-                        height: 5rem;
+                    .current-weather-info-degree {
+                        width: 50%;
+                        display: flex;
+                        justify-content: center;
+                        align-items: center;
+                        padding: 2rem;
+                        border-radius: 25px;
+                        -webkit-box-shadow: inset -1px 5px 15px -2px #000000;
+                        box-shadow: inset -1px 5px 15px -2px #000000;
+
+                        .current-weather-img {
+
+                            img {
+                                height: 6rem;
+                                margin-top: -2rem;
+                            }
+                        }
+
+
+
+                        .current-weather-degree {
+                            width: 8rem;
+
+                            p {
+                                font-size: 5rem;
+                            }
+
+                            .feelslikebr {
+                                margin-left: 0.3rem;
+                            }
+
+                            .span-degree {
+                                font-weight: 700;
+                            }
+
+                        }
+
+
                     }
-                }
 
-
-
-                .current-weather-degree {
-                    width: 12.5rem;
-
-                    p {
-                        font-size: 5rem;
-                    }
-
-                    .span-degree {
-                        font-weight: 700;
+                    .current-weather-info-wind {
+                        width: 50%;
+                        // background-color: yellow;
                     }
                 }
             }
-
-            .current-weather-info {}
-        }
-
-
-        .astronomy-content {
-            width: 25rem;
-            // background-color: yellow;
         }
     }
 }

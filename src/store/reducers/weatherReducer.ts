@@ -23,7 +23,17 @@ const initialState: WeatherState = {
 const weatherSlice = createSlice({
     name: 'weather',
     initialState,
-    reducers: {},
+    reducers: {
+        setReset(state, action: PayloadAction<string | null>) {
+            state.forecastData = action.payload;
+        },
+        setError(state, action: PayloadAction<string | null>) {
+            state.error = action.payload;
+        },
+        setIsLoading: (state: WeatherState, action: PayloadAction<boolean>) => {
+            state.isLoading = action.payload;
+        },
+    },
     extraReducers: (builder) => {
         builder.addCase(fetchSearchResults.pending, (state) => {
             // state.isLoading = true;
@@ -61,7 +71,7 @@ const weatherSlice = createSlice({
         });
 
         builder.addCase(fetchForecastWeather.fulfilled, (state, action: PayloadAction<any>) => {
-            state.isLoading = false;
+            // state.isLoading = false;
             state.forecastData = action.payload;
         });
 
@@ -76,7 +86,7 @@ const weatherSlice = createSlice({
         });
 
         builder.addCase(fetchAstronomy.fulfilled, (state, action: PayloadAction<any>) => {
-            state.isLoading = false;
+            // state.isLoading = false;
             state.astronomyData = action.payload;
         });
 
@@ -86,5 +96,7 @@ const weatherSlice = createSlice({
         });
     },
 });
+
+export const { setIsLoading, setReset } = weatherSlice.actions;
 
 export default weatherSlice.reducer;

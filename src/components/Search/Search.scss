@@ -54,7 +54,7 @@
     }
 
     ul {
-        height: 12rem;
+        max-height: 12rem;
         width: 50rem;
         background-color: var(--bg-light-color);
         position: absolute;
@@ -63,6 +63,8 @@
         overflow-x: hidden;
         z-index: 999;
         color: var(--icon-color);
+        -webkit-box-shadow: 5px 7px 17px -4px #000000;
+        box-shadow: 5px 7px 17px -4px #000000;
 
         @media (min-width: 1900px) {
             width: 70rem;
@@ -93,7 +95,15 @@
 
 
             .city {
-                p {}
+                p {
+                    font-size: 1rem;
+                    font-weight: 700;
+                }
+
+                span {
+                    font-style: italic;
+                    font-size: 0.9rem;
+                }
             }
         }
 

@@ -1,7 +1,8 @@
 import React, { useState, useEffect, useRef } from 'react';
 import { useDispatch, useSelector } from 'react-redux';
-import { fetchSearchResults, fetchForecastWeather, fetchAstronomy } from '../../store/thunks/weatherThunks';
 import { AppStore, AppDispatch } from '../../store/store';
+import { fetchSearchResults, fetchForecastWeather, fetchAstronomy } from '../../store/thunks/weatherThunks';
+import { setIsLoading } from '../../store/reducers/weatherReducer';
 import './Search.scss';
 import SearchIcon from '@mui/icons-material/Search';
 import PlaceIcon from '@mui/icons-material/Place';
@@ -19,7 +20,7 @@ const Search: React.FC = () => {
         if (searchText) {
             dispatch(fetchSearchResults(searchText));
         }
-    }, [searchText, dispatch]);
+    }, [searchResults, searchText, dispatch]);
 
     useEffect(() => {
         const handleClickOutside = (event: MouseEvent) => {
@@ -47,6 +48,9 @@ const Search: React.FC = () => {
             dispatch(fetchAstronomy({ lat: cityLat, lon: cityLon }))
         ])
             .then(() => {
+                setTimeout(() => {
+                    dispatch(setIsLoading(false));
+                }, 500);
                 setShowResults(false);
                 setSearchText('');
             })

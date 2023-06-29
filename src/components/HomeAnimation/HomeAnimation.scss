@@ -14,9 +14,6 @@
 
 }
 
-
-
-
 .sun {
     position: absolute;
     bottom: 0px;
@@ -27,6 +24,25 @@
     border-radius: 360px;
     opacity: 1;
     animation: sun 10s 0s linear infinite;
+
+}
+
+:root[data-theme="theme-light"] {
+    .sunismoon {
+        display: none;
+    }
+}
+
+:root[data-theme="theme-dark"] {
+    .sunismoon {
+        width: 180px;
+        height: 180px;
+        margin-top: -55px;
+        margin-left: -55px;
+        background: var(--bg-color);
+        border-radius: 360px;
+        opacity: 1;
+    }
 }
 
 .cloud {
@@ -853,6 +869,18 @@
         height: 85px;
         opacity: 1;
         animation: sun 10s 0s linear infinite;
+    }
+
+    :root[data-theme="theme-dark"] {
+        .sunismoon {
+            width: 90px;
+            height: 90px;
+            margin-top: -27.5px;
+            margin-left: -27.5px;
+            background: var(--bg-color);
+            border-radius: 360px;
+            opacity: 1;
+        }
     }
 
     .cloud {

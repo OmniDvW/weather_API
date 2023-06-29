@@ -13,6 +13,10 @@
     display: none;
 }
 
+:root[data-theme="theme-light"] {}
+
+:root[data-theme="theme-dark"] {}
+
 label {
     display: block;
     width: 58px;
@@ -45,7 +49,7 @@ label {
     right: 5%;
     width: 20px;
     height: 20px;
-    background-color: #551639;
+    background-color: #f9db62;
     border-radius: 50%;
     transition: 0.3s ease bottom;
 }
@@ -70,11 +74,6 @@ label {
     top: 1.5px;
     left: 32px;
     transform: scale(0);
-    background-color: yellow;
-}
-
-#toggle_checkbox:checked+label .star {
-    color: yellow;
 }
 
 #toggle_checkbox:checked+label #moon {
