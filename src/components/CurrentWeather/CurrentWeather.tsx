@@ -15,6 +15,8 @@ import NorthEastIcon from '@mui/icons-material/NorthEast';
 import NorthWestIcon from '@mui/icons-material/NorthWest';
 import EastIcon from '@mui/icons-material/East';
 import WestIcon from '@mui/icons-material/West';
+import WbSunnyIcon from '@mui/icons-material/WbSunny';
+import Brightness2Icon from '@mui/icons-material/Brightness2';
 
 
 
@@ -25,6 +27,18 @@ const CurrentWeather: React.FC = () => {
         forecastData: state.weather.forecastData,
         astronomyData: state.weather.astronomyData
     }));
+
+    const convertHour = (time12h: string) => {
+        const [time, modifier] = time12h.split(' ');
+        const [hours, minutes] = time.split(':');
+        let hours24 = parseInt(hours, 10);
+        if (modifier === 'PM' && hours24 < 12) {
+            hours24 += 12;
+        }
+        const time24h = `${hours24.toString().padStart(2, '0')}:${minutes}`;
+
+        return time24h;
+    };
 
     // useEffect(() => {
 
@@ -40,7 +54,7 @@ const CurrentWeather: React.FC = () => {
                             <p>{forecastData.location.region}, <span>{forecastData.location.country}</span></p>
                         </div>
                         <div className='current-weather-title-right' title='Heure locale'>
-                            <QueryBuilderIcon /><span>{String(new Date(forecastData.location.localtime).getHours()).padStart(2, '0')}h{String(new Date(forecastData.location.localtime).getMinutes()).padStart(2, '0')}</span>
+                            <QueryBuilderIcon /><span>{String(new Date(forecastData.location.localtime).getHours()).padStart(2, '0')}:{String(new Date(forecastData.location.localtime).getMinutes()).padStart(2, '0')}</span>
                         </div>
 
 
@@ -56,24 +70,32 @@ const CurrentWeather: React.FC = () => {
                                     <p>{Math.round(forecastData.currentWeather.temp_c)}°</p>
                                     <span className='feelslikebr'>Ressenti <span className='span-degree'>{Math.round(forecastData.currentWeather.feelslike_c)}°</span></span>
                                 </div>
+                                <div className='current-weather-wind'>
+                                    <p>
+                                        {forecastData.currentWeather.wind_dir === "S" ? <span><SouthIcon /> S</span> :
+                                            forecastData.currentWeather.wind_dir === "SE" || "SSE" ? <span><SouthEastIcon /> SE</span> :
+                                                forecastData.currentWeather.wind_dir === "SW" || "SSW" ? <span><SouthWestIcon /> SO</span> :
+                                                    forecastData.currentWeather.wind_dir === "N" ? <span><NorthIcon /> N</span> :
+                                                        forecastData.currentWeather.wind_dir === "NE" || "NNE" ? <span><NorthEastIcon /> NE</span> :
+                                                            forecastData.currentWeather.wind_dir === "NW" || "NNW" ? <span><NorthWestIcon /> NO</span> :
+                                                                forecastData.currentWeather.wind_dir === "E" ? <span><EastIcon /> E</span> :
+                                                                    forecastData.currentWeather.wind_dir === "W" ? <span><WestIcon /> O</span> :
+                                                                        forecastData.currentWeather.wind_dir}
+                                    </p>
+                                </div>
                             </div>
 
-                            <div className='current-weather-info-wind'>
-                                <p><AirIcon /> {Math.round(forecastData.currentWeather.wind_kph)} - {Math.round(forecastData.currentWeather.gust_kph)} km/h</p>
-                                <p>
-                                    {forecastData.currentWeather.wind_dir === "S" ? <span><SouthIcon /> Sud</span> :
-                                        forecastData.currentWeather.wind_dir === "SE" || "SSE" ? <span><SouthEastIcon /> Sud-est</span> :
-                                            forecastData.currentWeather.wind_dir === "SW" || "SSW" ? <span><SouthWestIcon /> Sud-ouest</span> :
-                                                forecastData.currentWeather.wind_dir === "N" ? <span><NorthIcon /> Nord</span> :
-                                                    forecastData.currentWeather.wind_dir === "NE" || "NNE" ? <span><NorthEastIcon /> Nord-est</span> :
-                                                        forecastData.currentWeather.wind_dir === "NW" || "NNW" ? <span><NorthWestIcon /> Nord-ouest</span> :
-                                                            forecastData.currentWeather.wind_dir === "E" ? <span><EastIcon /> Est</span> :
-                                                                forecastData.currentWeather.wind_dir === "W" ? <span><WestIcon /> Ouest</span> :
-                                                                    forecastData.currentWeather.wind_dir}
-                                </p>
-                                <p title='Humidité'><WaterDropIcon /> {forecastData.currentWeather.humidity}%</p>
-                                <p title='Précipitations'><WaterIcon /> {Math.round(forecastData.currentWeather.precip_mm)}mm</p>
-                                <p title='Pression Atmosphérique'><CloudSyncIcon /> {forecastData.currentWeather.pressure_mb}hPa</p>
+                            <div className='current-weather-info'>
+                                <div className='current-weather-info-content'>
+                                    <p title='Force du vent'> <AirIcon /> <span>{Math.round(forecastData.currentWeather.wind_kph)} - {Math.round(forecastData.currentWeather.gust_kph)}</span><span>km/h</span></p>
+                                    <p title='Humidité'><WaterDropIcon /> <span>{forecastData.currentWeather.humidity}</span><span>%</span></p>
+                                    <p title='Précipitations'><WaterIcon /> <span>{Math.round(forecastData.currentWeather.precip_mm)}</span><span>mm</span></p>
+                                    {/* <p title='Pression Atmosphérique'><CloudSyncIcon /> {forecastData.currentWeather.pressure_mb}hPa</p> */}
+                                    <p title='Pression Atmosphérique'><WbSunnyIcon /> <span>{convertHour(astronomyData.astronomy.sunrise)}</span><span className='hourBr'>-</span><span>{convertHour(astronomyData.astronomy.sunset)}</span></p>
+                                    <p title='Pression Atmosphérique'><Brightness2Icon /> <span>{convertHour(astronomyData.astronomy.moonrise)}</span><span className='hourBr'>-</span><span>{convertHour(astronomyData.astronomy.moonset)}</span></p>
+                                </div>
+
+
                             </div>
 
                         </div>

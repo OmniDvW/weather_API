@@ -18,6 +18,10 @@
         display: flex;
         flex-direction: column;
 
+        @media (max-width: 576px) {
+            padding: 1.5rem;
+        }
+
 
         @media (min-width: 1900px) {
             width: 70rem;
@@ -33,6 +37,7 @@
 
         .current-weather-content {
             width: 100%;
+            height: 100%;
             z-index: 900;
 
             .current-weather-title {
@@ -82,36 +87,46 @@
                 justify-content: flex-start;
                 align-items: center;
 
-
                 .current-weather-main-info {
                     width: 100%;
-                    height: 15rem;
-                    background-color: var(--select-color);
                     display: flex;
                     justify-content: space-between;
                     align-items: center;
                     padding: 2rem;
                     border-radius: 25px;
 
+                    @media (max-width: 992px) {
+                        flex-direction: column;
+                        padding: 1rem;
+                    }
+
+                    @media (max-width: 576px) {
+                        padding: 0;
+                    }
+
+
                     .current-weather-info-degree {
-                        width: 50%;
+                        width: 100%;
                         display: flex;
                         justify-content: center;
-                        align-items: center;
+                        align-items: flex-start;
+                        background-color: var(--select-color);
                         padding: 2rem;
                         border-radius: 25px;
                         -webkit-box-shadow: inset -1px 5px 15px -2px #000000;
                         box-shadow: inset -1px 5px 15px -2px #000000;
 
+                        // @media (max-width: 1900px) {
+                        //     width: 50%;
+                        // }
+
                         .current-weather-img {
 
                             img {
                                 height: 6rem;
-                                margin-top: -2rem;
+                                // margin-top: -1rem;
                             }
                         }
-
-
 
                         .current-weather-degree {
                             width: 8rem;
@@ -127,15 +142,99 @@
                             .span-degree {
                                 font-weight: 700;
                             }
-
                         }
 
+                        .current-weather-wind {
+                            margin-left: 1rem;
+
+                            svg {
+                                font-size: 2rem;
+                                font-weight: 700;
+                            }
+                        }
 
                     }
 
-                    .current-weather-info-wind {
-                        width: 50%;
-                        // background-color: yellow;
+                    .current-weather-info {
+                        width: 100%;
+                        display: flex;
+                        justify-content: flex-end;
+                        align-items: center;
+
+
+
+
+
+                        .current-weather-info-content {
+                            width: 15rem;
+                            margin-left: 2rem;
+                            display: flex;
+                            flex-direction: column;
+                            justify-content: space-around;
+                            border-radius: 25px;
+                            padding: 1rem;
+                            background-color: var(--select-color);
+                            -webkit-box-shadow: inset -1px 5px 15px -2px #000000;
+                            box-shadow: inset -1px 5px 15px -2px #000000;
+
+
+                            @media (max-width: 992px) {
+                                width: 100%;
+                                height: 5rem;
+                                margin-left: 0;
+                                margin-top: 2rem;
+                                flex-direction: row;
+
+                            }
+
+                            @media (max-width: 576px) {
+                                justify-content: space-between;
+                            }
+
+                            p {
+                                display: flex;
+                                flex-direction: row;
+                                justify-content: flex-start;
+                                align-items: center;
+                                margin-left: 0.5rem;
+
+                                @media (max-width: 992px) {
+                                    flex-direction: column;
+                                    justify-content: center;
+                                    margin-left: 0;
+
+                                }
+
+                                svg {
+                                    margin-bottom: 0.3rem;
+                                }
+
+                                span {
+                                    margin-left: 0.3rem;
+
+                                    @media (max-width: 992px) {
+                                        margin-left: 0;
+
+                                    }
+                                }
+
+                                .hourBr {
+                                    display: block;
+
+                                    @media (max-width: 992px) {
+                                        display: none;
+
+                                    }
+                                }
+
+
+
+
+
+                            }
+                        }
+
+
                     }
                 }
             }
