@@ -1,4 +1,4 @@
-# React Weather App
+# React Meteo App
 
 ![meteo app desktop light](https://github.com/OmniDvW/weather_API/blob/master/readme_Img/omni-meteo-desktop-light.png)
 ![meteo app smartphone light](https://github.com/OmniDvW/weather_API/blob/master/readme_Img/omni-meteo-smartphone-light.png)
@@ -17,25 +17,25 @@ Création d'une app météo avec React. [Live Demo](https://omni-meteo.netlify.a
 
 ## Getting Started
 
-Clone le repository Github
+Cloner le repository Github
 
 ```
 git clone https://github.com/OmniDvW/weather_API.git
 ```
-Installe les dépendances
+Installer les dépendances
 
 ```
 cd weather_API
 npm install
 ```
 
-Créé un fichier .env à la racine du projet et ajoute les paramètres de l'API
+Créer un fichier .env à la racine du projet et ajouter les paramètres de l'API
 ```
 REACT_APP_API_KEY=your-api-key
 REACT_APP_API_HOST=your-api-host
 ```
 
-Lance le projet
+Lancer le projet
 ```
 npm run start
 ```
