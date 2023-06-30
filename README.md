@@ -1,9 +1,9 @@
 # React Weather App
 
 ![meteo app desktop light](https://github.com/OmniDvW/weather_API/blob/master/readme_Img/omni-meteo-desktop-light.png)
-![meteo app desktop dark](https://github.com/OmniDvW/weather_API/blob/master/readme_Img/omni-meteo-desktop-dark.png) ![meteo app smartphone](https://github.com/OmniDvW/weather_API/blob/master/readme_Img/omni-meteo-smartphone.png)
-
-
+![meteo app smartphone light](https://github.com/OmniDvW/weather_API/blob/master/readme_Img/omni-meteo-smartphone-light.png)
+![meteo app desktop dark](https://github.com/OmniDvW/weather_API/blob/master/readme_Img/omni-meteo-desktop-dark.png) 
+![meteo app smartphone dark](https://github.com/OmniDvW/weather_API/blob/master/readme_Img/omni-meteo-smartphone-dark.png)
 
 Création d'une app météo avec React. [Live Demo](https://omni-meteo.netlify.app/).
 
@@ -17,31 +17,30 @@ Création d'une app météo avec React. [Live Demo](https://omni-meteo.netlify.a
 
 ## Getting Started
 
-Clone this repository
+Clone le repository Github
 
-
-créer un fichier .env et rajout les données de l'api
-
-
-install dépendance et et lance le projets
-
-
-
-enjoy
-
-```javascript
-var s = "JavaScript syntax highlighting";
-alert(s);
 ```
+git clone https://github.com/OmniDvW/weather_API.git
+```
+Installe les dépendances
+
+```
+cd weather_API
+npm install
+```
+
+Créé un fichier .env à la racine du projet et ajoute les paramètres de l'API
+```
+REACT_APP_API_KEY=your-api-key
+REACT_APP_API_HOST=your-api-host
+```
+
+Lance le projet
+```
+npm run start
+```
+
+Enjoy!
+
+
  
-```python
-s = "Python syntax highlighting"
-print s
-```
- 
-```
-No language indicated, so no syntax highlighting. 
-But let's throw in a <b>tag</b>.
-```
-
-
