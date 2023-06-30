@@ -1,8 +1,8 @@
 # React Weather App
 
-![meteo app desktop light](https://github.com/OmniDvW/weather_API/blob/master/readme_Img/omni-meteo-desktop-light.png){:width="300px" height="200px"}
-![meteo app desktop dark](https://github.com/OmniDvW/weather_API/blob/master/readme_Img/omni-meteo-desktop-dark.png){:width="300px" height="200px"}
-![meteo app smartphone](https://github.com/OmniDvW/weather_API/blob/master/readme_Img/omni-meteo-smartphone.png){:width="300px" height="200px"}
+![meteo app desktop light](https://github.com/OmniDvW/weather_API/blob/master/readme_Img/omni-meteo-desktop-light.png)
+![meteo app desktop dark](https://github.com/OmniDvW/weather_API/blob/master/readme_Img/omni-meteo-desktop-dark.png) ![meteo app smartphone](https://github.com/OmniDvW/weather_API/blob/master/readme_Img/omni-meteo-smartphone.png)
+
 
 
 Création d'une app météo avec React. [Live Demo](https://omni-meteo.netlify.app/).
