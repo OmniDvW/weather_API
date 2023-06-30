@@ -1,10 +1,22 @@
-# Getting Started with Create React App
+# React Weather App
 
-This project was bootstrapped with [Create React App](https://github.com/facebook/create-react-app).
+![meteo app desktop light](./readme_img/omni-meteo-desktop-light.png)
+![meteo app desktop dark](./readme_img/omni-meteo-desktop-dark.png)
+![meteo app smartphone](./readme_img/omni-meteo-smartphone.png)
 
-## Available Scripts
+<img src="chemin-vers-l-image.png" alt="meteo app desktop light]" width="300" height="200">
+<img src="chemin-vers-l-image.png" alt="meteo app desktop dark" width="300" height="200">
+<img src="chemin-vers-l-image.png" alt="meteo app smartphone] width="300" height="200">
 
-In the project directory, you can run:
+Création d'une app météo avec React. [Live Demo](https://omni-meteo.netlify.app/).
+
+## Tech
+
+**React, Typescript, Redux, Sass**
+
+[WeatherApi.com](https://www.weatherapi.com/)
+
+## Getting Started
 
 ### `npm start`
 
