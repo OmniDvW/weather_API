@@ -40,10 +40,6 @@ const CurrentWeather: React.FC = () => {
         return time24h;
     };
 
-    // useEffect(() => {
-
-    // }, [forecastResults]);
-
     return (
         <div className='current-weather-wrapper'>
             <div className='current-weather-contain'>
@@ -56,9 +52,6 @@ const CurrentWeather: React.FC = () => {
                         <div className='current-weather-title-right' title='Heure locale'>
                             <QueryBuilderIcon /><span>{String(new Date(forecastData.location.localtime).getHours()).padStart(2, '0')}:{String(new Date(forecastData.location.localtime).getMinutes()).padStart(2, '0')}</span>
                         </div>
-
-
-
                     </div>
                     <div className='current-weather-main'>
                         <div className='current-weather-main-info'>
@@ -84,7 +77,6 @@ const CurrentWeather: React.FC = () => {
                                     </p>
                                 </div>
                             </div>
-
                             <div className='current-weather-info'>
                                 <div className='current-weather-info-content'>
                                     <p title='Force du vent'> <AirIcon /> <span>{Math.round(forecastData.currentWeather.wind_kph)} - {Math.round(forecastData.currentWeather.gust_kph)}</span><span>km/h</span></p>
@@ -94,33 +86,11 @@ const CurrentWeather: React.FC = () => {
                                     <p title='Pression Atmosphérique'><WbSunnyIcon /> <span>{convertHour(astronomyData.astronomy.sunrise)}</span><span className='hourBr'>-</span><span>{convertHour(astronomyData.astronomy.sunset)}</span></p>
                                     <p title='Pression Atmosphérique'><Brightness2Icon /> <span>{convertHour(astronomyData.astronomy.moonrise)}</span><span className='hourBr'>-</span><span>{convertHour(astronomyData.astronomy.moonset)}</span></p>
                                 </div>
-
-
                             </div>
-
                         </div>
-
-
                     </div>
-                    {/* <div className='current-weather-info'>
-
-
-                    </div> */}
-
-
-
                 </div>
-                {/* <div className='astronomy-content'>
-                    <p>levé du soleil {astronomyData.astronomy.sunrise}</p>
-                    <p>couché du soleil {astronomyData.astronomy.sunset}</p>
-                    <p>phase lune {astronomyData.astronomy.moon_phase}</p>
-                    <p>levé de la lune {astronomyData.astronomy.moonrise}</p>
-                    <p>couché de la lune {astronomyData.astronomy.moonset}</p>
-                    <p>moon illumination {astronomyData.astronomy.moon_illumination}</p>
-                </div> */}
             </div>
-
-
         </div>
     );
 };

@@ -8,7 +8,6 @@ interface AppState {
 
 const initialState: AppState = {
     isInitial: true,
-    // darkMode: JSON.parse(localStorage.getItem('darkMode') as string) as boolean,
     darkMode: false,
 };
 
@@ -20,7 +19,6 @@ const appSlice = createSlice({
             state.isInitial = action.payload;
         },
         toggleDarkMode: (state: AppState) => {
-            // localStorage.setItem('darkMode', (!state.darkMode).toString());
             state.darkMode = !state.darkMode;
         },
     },

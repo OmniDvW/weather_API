@@ -17,9 +17,6 @@ const App: React.FC = () => {
     error: state.weather.error,
   }));
 
-  // useEffect(() => {
-  // }, [forecastData, isLoading, error]);
-
   return (
     <div className='app-wrapper'>
       <Navbar />
@@ -42,7 +39,6 @@ const App: React.FC = () => {
       <div className='sign'> <span>Developed by </span><a href="https://github.com/OmniDvW" target='blank' >OmniDvW</a></div>
       <BackgroundAnimation />
     </div>
-
   );
 };
 
